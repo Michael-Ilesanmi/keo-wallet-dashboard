@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FontAwesome Stysheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Page Container -->
+
+    <div class="container flex-row">
+      <!-- Left Side Bar -->
+
+      <div class="side-nav flex-column">
+        <div class="logo">KEO</div>
+        <ul>
+          <!-- Top/Main part of the side BAr -->
+
+          <li class="active"><i class="far fa-folder-open"></i>Dashboard</li>
+          <li onclick="transferTo()">
+            <i class="far fa-folder-open"></i>Transfer
+          </li>
+          <li onclick="rechargeMe()">
+            <i class="far fa-folder-open"></i>Recharge
+          </li>
+          <li><i class="far fa-folder-open"></i>Bills</li>
+          <li><i class="far fa-folder-open"></i>Transactions</li>
+        </ul>
+
+        <!-- Bottom Part of the Side Bar -->
+        <ul class="side-nav-bottom flex-column">
+          <li><i class="far fa-folder-open"></i>Settings</li>
+          <li><i class="far fa-folder-open"></i>Account</li>
+        </ul>
+      </div>
+
+      <!-- End of Left Side Bar -->
+
+      <div class="main-section flex-column">
+        <div class="top flex-row">
+          <div class="search flex-row">
+            <input type="text" placeholder="Search" />
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <div class="user flex-row">
+            <i class="far fa-bell"></i>
+            <div class="user-icon"><p>J</p></div>
+          </div>
+        </div>
+        <h3 class="blue">Wallet</h3>
+        <div class="wallet flex-row">
+          <div class="account-info flex-column">
+            <p class="balance">Balance</p>
+            <h4 class="account-balance">N 15,000.000</h4>
+            <p class="account-name">ADEKUNLE DANIEL</p>
+          </div>
+          <div class="fund-account flex-column green">
+            <i class="fas fa-plus"></i>
+            <p>Fund Account</p>
+          </div>
+        </div>
+
+        <!-- Quick Links Section -->
+
+        <h3 class="blue">Quick Links</h3>
+        <div class="flex-row">
+          <div
+            onclick="transferTo()"
+            class="pink transfer quick-links flex-column"
+          >
+            <i class="fas fa-plus"></i>
+            <p>Transfer</p>
+          </div>
+          <div
+            onclick="rechargeMe()"
+            class="recharge light-blue quick-links flex-column"
+          >
+            <i class="fas fa-plus"></i>
+            <p>Recharge</p>
+          </div>
+          <div class="yellow pay-bills quick-links flex-column">
+            <i class="fas fa-plus"></i>
+            <p>Pay Bills</p>
+          </div>
+        </div>
+        <!-- End of Quick Links Section -->
+
+        <!-- Transactions Section -->
+
+        <h3 class="blue">Transactions</h3>
+        <div class="transaction-history">
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Details</th>
+              <th>Amount</th>
+              <th>Type</th>
+            </tr>
+            <tr>
+              <td>12-08-2021</td>
+              <td>Electricity bill</td>
+              <td>N 4000.00</td>
+              <td class="red">Debit</td>
+            </tr>
+            <tr>
+              <td>06-07-2021</td>
+              <td>Airtime recharge</td>
+              <td>N 500.00</td>
+              <td class="red">Debit</td>
+            </tr>
+            <tr>
+              <td>11-07-2021</td>
+              <td>Transfer</td>
+              <td>N 10,000.00</td>
+              <td class="green">Credit</td>
+            </tr>
+            <tr>
+              <td>09-06-2021</td>
+              <td>DSTV</td>
+              <td>N 3000.00</td>
+              <td class="red">Debit</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- End of Transactions Section -->
+
+      <!-- Transfer Money Pop-Up Screen -->
+
+      <div id="transfer" class="modal-window">
+        <div id="pop-up">
+          <div class="title flex-row">
+            <h3>Transfer to:</h3>
+            <i onclick="closeModal()" id="close-modal" class="fas fa-times"></i>
+          </div>
+          <form action="">
+            <label for="account-num">Beneficiary Account number</label><br />
+            <input type="text" name="account-num" id="account-num" /><br />
+            <label for="amount">Amount</label><br />
+            <input type="text" name="amount" id="amount" /><br />
+            <label for="narration">Narration</label><br />
+            <input type="text" name="narration" id="narration" /><br />
+            <input type="submit" value="Transfer" />
+          </form>
+        </div>
+      </div>
+      <!-- End of Transfer Money Pop-Up Screen -->
+
+      <!-- Recharge Pop-Up Screen -->
+
+      <div id="recharge" class="modal-window">
+        <div id="pop-up">
+          <div class="title flex-row">
+            <h3>Transfer to:</h3>
+            <i
+              onclick="closeModal(this)"
+              id="close-modal"
+              class="fas fa-times"
+            ></i>
+          </div>
+          <form action="">
+            <label for="account-num">Phone number</label><br />
+            <input type="text" name="account-num" id="account-num" /><br />
+            <label for="amount">Amount</label><br />
+            <input
+              type="text"
+              name="amount"
+              id="amount"
+              placeholder="Amount from 5 to 10,000"
+            /><br />
+            <label for="network">Network service provider</label><br />
+            <select size="1" multiple name="network" id="network">
+              <option value="mtn">MTN</option>
+              <option value="airtel">Airte</option>
+              <option value="glo">Globacom</option>
+              <option value="9mobile">9mobile</option>
+            </select>
+            <br />
+            <input type="submit" value="Transfer" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End of Recharge Pop-Up Screen -->
+
+    <!-- The Script ffor initiating the Pop-up -->
+    <script>
+      var recharge = document.getElementById("recharge");
+      var transfer = document.getElementById("transfer");
+      var closePopUp = document.getElementById("close-modal");
+      var closeModal = document.getElementById("close-modal");
+      function transferTo() {
+        transfer.style.display = "block";
+      }
+      function rechargeMe() {
+        recharge.style.display = "block";
+      }
+
+      function closeModal() {
+        this.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
