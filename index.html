@@ -21,8 +21,14 @@
     <div class="container flex-row">
       <!-- Left Side Bar -->
 
-      <div class="side-nav flex-column">
-        <div class="logo">KEO</div>
+      <div class="side-nav flex-column" id="side-nav">
+        <div class="logo flex-row">
+          <img
+            src="https://res.cloudinary.com/ioluwamichael/image/upload/v1617892739/Keo_logo_white_1_jkl0lo.svg"
+            alt=""
+          />
+          KEO
+        </div>
         <ul>
           <!-- Top/Main part of the side BAr -->
 
@@ -40,14 +46,20 @@
         <!-- Bottom Part of the Side Bar -->
         <ul class="side-nav-bottom flex-column">
           <li><i class="far fa-folder-open"></i>Settings</li>
-          <li><i class="far fa-folder-open"></i>Account</li>
+          <li><i class="far fa-folder-open"></i>Accounts</li>
         </ul>
       </div>
 
       <!-- End of Left Side Bar -->
 
       <div class="main-section flex-column">
+        <!-- Search and Notification Container -->
         <div class="top flex-row">
+          <i
+            class="far fa-folder-open"
+            id="mobile-side-nav"
+            onclick="responsiveNav()"
+          ></i>
           <div class="search flex-row">
             <input type="text" placeholder="Search" />
             <button><i class="fas fa-search"></i></button>
@@ -57,6 +69,7 @@
             <div class="user-icon"><p>J</p></div>
           </div>
         </div>
+        <!-- End of Search and Notification Container -->
         <h3 class="blue">Wallet</h3>
         <div class="wallet flex-row">
           <div class="account-info flex-column">
@@ -132,9 +145,53 @@
             </tr>
           </table>
         </div>
+        <div class="transaction-history-mobile flex-column">
+          <div class="flex-row">
+            <div class="flex-column blue">
+              <h4>Electricity bill</h4>
+              <p>12-08-2021</p>
+            </div>
+            <div class="flex-column">
+              <h4 class="blue">N 4000.00</h4>
+              <p class="red">Debit</p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-column">
+              <h4>Electricity bill</h4>
+              <p>12-08-2021</p>
+            </div>
+            <div class="flex-column">
+              <h4>N 4000.00</h4>
+              <p class="red">Debit</p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-column">
+              <h4>Electricity bill</h4>
+              <p>12-08-2021</p>
+            </div>
+            <div class="flex-column">
+              <h4>N 4000.00</h4>
+              <p class="red">Debit</p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-column">
+              <h4>Electricity bill</h4>
+              <p>12-08-2021</p>
+            </div>
+            <div class="flex-column">
+              <h4>N 4000.00</h4>
+              <p class="red">Debit</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- End of Transactions Section -->
+
+      <!-- Modal Window -->
 
       <!-- Transfer Money Pop-Up Screen -->
 
@@ -142,15 +199,20 @@
         <div id="pop-up">
           <div class="title flex-row">
             <h3>Transfer to:</h3>
-            <i onclick="closeModal()" id="close-modal" class="fas fa-times"></i>
+            <i class="fas fa-times close-modal"></i>
           </div>
           <form action="">
             <label for="account-num">Beneficiary Account number</label><br />
-            <input type="text" name="account-num" id="account-num" /><br />
+            <input
+              type="text"
+              required
+              name="account-num"
+              id="account-num"
+            /><br />
             <label for="amount">Amount</label><br />
-            <input type="text" name="amount" id="amount" /><br />
+            <input type="text" required name="amount" id="amount" /><br />
             <label for="narration">Narration</label><br />
-            <input type="text" name="narration" id="narration" /><br />
+            <input type="text" required name="narration" id="narration" /><br />
             <input type="submit" value="Transfer" />
           </form>
         </div>
@@ -163,26 +225,29 @@
         <div id="pop-up">
           <div class="title flex-row">
             <h3>Transfer to:</h3>
-            <i
-              onclick="closeModal(this)"
-              id="close-modal"
-              class="fas fa-times"
-            ></i>
+            <i class="fas fa-times close-modal"></i>
           </div>
           <form action="">
-            <label for="account-num">Phone number</label><br />
-            <input type="text" name="account-num" id="account-num" /><br />
+            <label for="phone-num">Phone number</label><br />
+            <input
+              type="text"
+              required
+              aria-placeholder="200009"
+              name="phone-num"
+              id="phone-num"
+            /><br />
             <label for="amount">Amount</label><br />
             <input
               type="text"
               name="amount"
               id="amount"
+              required
               placeholder="Amount from 5 to 10,000"
             /><br />
             <label for="network">Network service provider</label><br />
-            <select size="1" multiple name="network" id="network">
+            <select required name="network" id="network">
               <option value="mtn">MTN</option>
-              <option value="airtel">Airte</option>
+              <option value="airtel">Airtel</option>
               <option value="glo">Globacom</option>
               <option value="9mobile">9mobile</option>
             </select>
@@ -194,12 +259,21 @@
     </div>
     <!-- End of Recharge Pop-Up Screen -->
 
+    <!-- The Script for the Responisve Mobile Nav -->
+    <script>
+      var hamburger = document.getElementById("mobile-side-nav");
+      var sideNav = document.getElementById("side-nav");
+
+      function responsiveNav() {
+        sideNav.style.display = "block";
+        hamburger.style.visibility = "hidden";
+      }
+    </script>
+
     <!-- The Script ffor initiating the Pop-up -->
     <script>
       var recharge = document.getElementById("recharge");
       var transfer = document.getElementById("transfer");
-      var closePopUp = document.getElementById("close-modal");
-      var closeModal = document.getElementById("close-modal");
       function transferTo() {
         transfer.style.display = "block";
       }
@@ -207,9 +281,18 @@
         recharge.style.display = "block";
       }
 
-      function closeModal() {
-        this.style.display = "none";
-      }
+      // var close = document.getElementsByClassName("close-modal")[0];
+      // var modal = document.getElementsByClassName("modal-window");
+
+      // close.onclick = function () {
+      //   modal.style.display = "none";
+      // };
+
+      // window.onclick = function (event) {
+      //   if (event.target == modal) {
+      //     modal.style.display = "none";
+      //   }
+      // };
     </script>
   </body>
 </html>
