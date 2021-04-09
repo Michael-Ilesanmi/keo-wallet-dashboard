@@ -79,8 +79,9 @@ a {
   padding: 20px 0;
 }
 
-.side-nav .far {
+.side-nav i {
   margin-right: 15px;
+  font-size: 18px;
   color: #fff;
 }
 
@@ -112,6 +113,9 @@ a {
 .active {
   background-color: rgba(255, 255, 255, 0.35);
 }
+
+/* End of Side Navigation STyling */
+
 /* Main Section Dashboard */
 
 .main-section {
@@ -222,17 +226,17 @@ a {
   flex-grow: 2;
 }
 
-.fund-account .fas,
-.quick-links .fas {
-  font-size: 16px;
-  padding: 7px 0;
+.fund-account i,
+.quick-links i {
+  font-size: 20px;
+  padding: 6px 0;
   border-radius: 50%;
   text-align: center;
-  height: 30px;
-  width: 30px;
+  height: 34px;
+  width: 34px;
 }
 
-.fund-account .fas {
+.fund-account i {
   color: #ccd2e3;
   background-color: #0da237;
 }
@@ -253,15 +257,15 @@ a {
   height: 150px;
 }
 
-.transfer .fas {
+.transfer i {
   background-color: #f4d4e3;
 }
 
-.recharge .fas {
+.recharge i {
   background-color: #cfe2ec;
 }
 
-.pay-bills .fas {
+.pay-bills i {
   background-color: #feedd3;
 }
 
@@ -307,7 +311,7 @@ tr:first-child:hover {
 
 /* Modal Window and Pop-Up General Stying */
 
-.modal-window {
+.modal {
   display: none;
   width: 100%;
   height: 100%;
@@ -329,14 +333,15 @@ tr:first-child:hover {
   border-radius: 8px;
 }
 
-.modal-window form {
+.modal form {
   width: 90%;
+  position: relative;
   margin: auto;
   padding: 20px 0;
 }
 
-.modal-window input[type="text"],
-.modal-window select {
+.modal input[type="text"],
+.modal select {
   position: relative;
   margin: 5px auto 20px;
   width: 100%;
@@ -346,29 +351,27 @@ tr:first-child:hover {
   font-size: 14px;
 }
 
-.modal-window input[type="submit"] {
+.modal input[type="submit"] {
   width: 150px;
   position: relative;
-  left: 0;
-  right: 0;
   border: none;
   height: 35px;
   padding: 5px;
-  margin: auto;
   font-weight: 700;
   color: #fff;
   border-radius: 6px;
 }
 
-#pop-up .fa-times {
+#pop-up i {
   color: #e50e0e;
   background-color: #f4d4e3;
-  font-size: 12px;
-  padding: 7px 0;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 2px 0;
   border-radius: 50%;
   text-align: center;
-  height: 24px;
-  width: 24px;
+  height: 26px;
+  width: 26px;
 }
 
 #pop-up .title {
@@ -381,21 +384,21 @@ tr:first-child:hover {
 
 /* Recharge Pop-Up Color Styling */
 
-#recharge .title {
+#rechargeModal .title {
   background: #0d6ca2;
 }
 
-#recharge input[type="submit"] {
+#rechargeModal input[type="submit"] {
   background: #0d6ca2;
 }
 
 /* Transfer Pop-Up Color Styling */
 
-#transfer .title {
+#transferModal .title {
   background: #cc2593;
 }
 
-#transfer input[type="submit"] {
+#transferModal input[type="submit"] {
   background: #cc2593;
 }
 
@@ -403,16 +406,17 @@ tr:first-child:hover {
   /* Left-Side Navigation */
 
   .side-nav {
-    width: 150px;
+    width: 200px;
     padding: 7px 0;
   }
 
-  .side-nav .far {
-    margin-right: 4px;
+  .side-nav i {
+    margin-right: 8px;
+    font-size: 14px;
   }
 
   .side-nav li {
-    font-size: 12px;
+    font-size: 10px;
     margin-top: 10px;
   }
 
@@ -523,22 +527,28 @@ tr:first-child:hover {
     width: 400px;
   }
 
-  .modal-window input[type="text"],
-  .modal-window select {
+  .modal input[type="text"],
+  .modal select {
     margin: 5px auto 15px;
     height: 25px;
     padding: 3px 10px;
     font-size: 12px;
   }
 
-  .modal-window label {
+  .modal label {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .side-nav {
+  #side-nav {
     display: none;
+    padding: 10px 0;
+    width: 300px;
+  }
+  .side-nav i {
+    margin-right: 8px;
+    font-size: 14px;
   }
 
   .search {
@@ -576,5 +586,9 @@ tr:first-child:hover {
   }
   .transaction-history-mobile p {
     font-size: 12px;
+  }
+
+  #pop-up {
+    width: 90%;
   }
 }
